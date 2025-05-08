@@ -157,3 +157,57 @@ El proceso para transformar código fuente en algo que la máquina pueda ejecuta
     * Son herramientas esenciales que permiten a los programadores ejecutar su código paso a paso, inspeccionar el valor de las variables, establecer puntos de interrupción (breakpoints) para detener la ejecución en ciertos puntos, y analizar el flujo del programa para identificar y corregir errores (bugs).
     * La mayoría de los IDEs integran depuradores gráficos.
     * *Ejemplos:* GDB (GNU Debugger), `pdb` para Python, depuradores integrados en IntelliJ IDEA, Eclipse, Visual Studio Code.
+
+### 1.7. Fases del Desarrollo de una Aplicación
+
+El desarrollo de una aplicación de software es un proceso complejo que se divide en varias fases para gestionarlo de manera organizada. Aunque existen diferentes metodologías (ej. Cascada, Ágil), la mayoría comparten un conjunto de fases fundamentales:
+
+1.  **Análisis de Requisitos:**
+    * **Objetivo:** Entender y definir qué debe hacer la aplicación. Se recopilan las necesidades de los usuarios y stakeholders.
+    * **Actividades:** Reuniones con clientes/usuarios, estudio de viabilidad, definición del alcance, especificación de requisitos funcionales (qué hace el sistema) y no funcionales (cómo lo hace: rendimiento, seguridad, usabilidad).
+    * **Resultado:** Documento de Especificación de Requisitos del Software (ERS).
+
+2.  **Diseño:**
+    * **Objetivo:** Definir cómo se construirá la aplicación para cumplir con los requisitos.
+    * **Actividades:**
+        * **Diseño Arquitectónico:** Define la estructura general del sistema, componentes principales, sus interacciones y las tecnologías a utilizar.
+        * **Diseño Detallado:** Especifica los módulos individuales, algoritmos, estructuras de datos, diseño de la interfaz de usuario (UI), diseño de la base de datos.
+    * **Resultado:** Documento de Diseño del Software (DDS), diagramas (UML, de flujo), prototipos.
+
+3.  **Codificación (Implementación):**
+    * **Objetivo:** Traducir el diseño a código fuente utilizando el lenguaje de programación elegido.
+    * **Actividades:** Escritura del código, creación de bases de datos, integración de componentes.
+    * **Resultado:** Código fuente de la aplicación.
+
+4.  **Pruebas (Testing):**
+    * **Objetivo:** Verificar que la aplicación funciona según lo especificado y detectar errores (bugs).
+    * **Actividades:**
+        * **Pruebas Unitarias:** Probar componentes individuales o módulos.
+        * **Pruebas de Integración:** Probar la interacción entre módulos.
+        * **Pruebas de Sistema:** Probar el sistema completo contra los requisitos.
+        * **Pruebas de Aceptación del Usuario (UAT):** El cliente/usuario valida que la aplicación cumple sus necesidades.
+    * **Resultado:** Informe de pruebas, registro de errores, versión probada de la aplicación.
+
+5.  **Documentación:**
+    * **Objetivo:** Crear la documentación necesaria para diferentes audiencias.
+    * **Actividades:**
+        * **Documentación Técnica:** Para desarrolladores y mantenimiento (diseño, API, comentarios en código).
+        * **Manual de Usuario:** Para los usuarios finales, explicando cómo usar la aplicación.
+        * **Manual de Operación/Explotación:** Para administradores del sistema.
+    * **Resultado:** Manuales, guías, documentación Javadoc, etc. (Esta fase se realiza a menudo en paralelo con otras).
+
+6.  **Despliegue (Explotación/Implantación):**
+    * **Objetivo:** Poner la aplicación en producción para que los usuarios puedan utilizarla.
+    * **Actividades:** Instalación en servidores, configuración del entorno, migración de datos (si es necesario), capacitación de usuarios.
+    * **Resultado:** Aplicación funcionando en el entorno de producción.
+
+7.  **Mantenimiento:**
+    * **Objetivo:** Asegurar que la aplicación continúe funcionando correctamente y evolucione según las necesidades cambiantes.
+    * **Actividades:**
+        * **Mantenimiento Correctivo:** Corregir errores descubiertos después del despliegue.
+        * **Mantenimiento Adaptativo:** Modificar la aplicación para que funcione en nuevos entornos (ej. nuevo sistema operativo, cambios en hardware).
+        * **Mantenimiento Perfectivo:** Mejorar la funcionalidad existente o añadir nuevas características basadas en el feedback del usuario o nuevas necesidades.
+        * **Mantenimiento Preventivo:** Realizar cambios para mejorar la mantenibilidad futura o evitar problemas.
+    * **Resultado:** Nuevas versiones o parches de la aplicación.
+
+Es importante notar que en metodologías ágiles (como Scrum o Kanban), estas fases suelen ser iterativas e incrementales, en lugar de secuenciales y estrictas. Se trabaja en ciclos cortos, entregando valor funcional al final de cada ciclo.

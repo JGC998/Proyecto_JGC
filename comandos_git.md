@@ -216,196 +216,345 @@ Es importante notar que en metodologías ágiles (como Scrum o Kanban), estas fa
 
 ## 2. Uso de Herramientas CASE en el Desarrollo de Software
 
-Las herramientas CASE (Ingeniería de Software Asistida por Ordenador) automatizan y simplifican fases del ciclo de vida del software.
+Las herramientas CASE (Ingeniería de Software Asistida por Ordenador) son aplicaciones diseñadas para automatizar y asistir en las diversas etapas del ciclo de vida del desarrollo de software, desde la planificación hasta el mantenimiento.
 
-* **Objetivos:** Mejorar productividad, calidad, reducir tiempos/costes, facilitar gestión y comunicación.
-* **Tipos:**
-    * **Upper CASE (U-CASE):** Primeras fases (planificación, análisis, diseño).
-    * **Lower CASE (L-CASE):** Últimas fases (generación código, compilación, pruebas, mantenimiento).
-    * **Integrated CASE (I-CASE):** Cubren todo el ciclo.
-* **Funcionalidades:** Modelado, generación de diagramas (UML), repositorios de metadatos, generación de código, ingeniería inversa, validación, gestión de configuración, documentación.
-* **Ventajas:** Estandarización, mejora calidad, detección temprana errores, reutilización.
-* **Desventajas:** Curva aprendizaje, coste, posible rigidez metodológica.
+* **Objetivos Principales:**
+    * **Aumentar la productividad:** Automatizando tareas repetitivas y proporcionando entornos integrados.
+    * **Mejorar la calidad del software:** Facilitando la aplicación de metodologías, la detección temprana de errores y la estandarización.
+    * **Reducir tiempos y costes:** Optimizando procesos y mejorando la eficiencia.
+    * **Facilitar la gestión de proyectos:** Ofreciendo herramientas para la planificación, seguimiento y control.
+    * **Mejorar la comunicación:** Proporcionando un lenguaje común (modelos, diagramas) y repositorios compartidos.
+
+* **Tipos (según la fase que apoyan):**
+    * **Upper CASE (U-CASE):** Enfocadas en las fases iniciales (front-end del ciclo de vida).
+        * *Ejemplos de funcionalidades:* Planificación de proyectos, análisis de requisitos, modelado conceptual (entidad-relación, flujo de datos), diseño de alto nivel.
+        * *Herramientas típicas:* Software de modelado UML, herramientas de gestión de requisitos.
+    * **Lower CASE (L-CASE):** Enfocadas en las fases finales (back-end del ciclo de vida).
+        * *Ejemplos de funcionalidades:* Generación de código, compilación, depuración, pruebas, mantenimiento, ingeniería inversa.
+        * *Herramientas típicas:* IDEs, generadores de código, herramientas de testing, depuradores.
+    * **Integrated CASE (I-CASE) o Toolkits:** Buscan cubrir todo el ciclo de vida, integrando funcionalidades U-CASE y L-CASE en un entorno cohesivo.
+
+* **Funcionalidades Comunes Detalladas:**
+    * **Modelado Gráfico:** Creación de diagramas UML (casos de uso, clases, secuencia, actividad, etc.), diagramas de flujo de datos (DFD), diagramas entidad-relación (ERD).
+    * **Diccionario de Datos / Repositorio Central:** Almacén centralizado de metadatos del proyecto (definiciones de datos, procesos, relaciones, etc.), asegurando consistencia.
+    * **Generación de Código:** Creación automática de esqueletos de código o incluso código funcional a partir de modelos o especificaciones.
+    * **Ingeniería Inversa:** Proceso de analizar código existente para generar modelos o representaciones de más alto nivel.
+    * **Análisis y Verificación de Modelos:** Comprobación de consistencia, completitud y corrección de los modelos.
+    * **Generación de Documentación:** Creación automática de documentación técnica a partir de los modelos y la información del repositorio.
+
+* **Ventajas:** Mayor estandarización, mejora de la calidad y consistencia, detección temprana de errores, fomento de la reutilización.
+* **Desventajas:** Curva de aprendizaje pronunciada, coste (especialmente I-CASE), pueden introducir rigidez si no se adaptan bien a la metodología del equipo.
 
 ---
 
 ## 3. Diseño y Realización de Pruebas
 
-Proceso para asegurar calidad, verificar requisitos y detectar errores.
+Las pruebas son un conjunto de actividades sistemáticas para evaluar la calidad de un producto software, identificar defectos y verificar que cumple con los requisitos funcionales y no funcionales.
 
 ### 3.1. Tipos de Pruebas
 
-* **Según conocimiento interno:**
-    * **Caja Blanca (Estructurales):** Conoce el código. Verifica flujos internos. *Técnicas:* Cobertura de sentencias, decisiones, caminos.
-    * **Caja Negra (Funcionales):** Desconoce el código. Prueba E/S según especificaciones. *Técnicas:* Particiones equivalencia, valores límite.
-    * **Caja Gris:** Conocimiento parcial.
-* **Según Nivel:**
-    * **Unitarias:** Módulos pequeños y aislados (por desarrolladores).
-    * **Integración:** Interacción entre módulos.
-    * **Sistema:** Sistema completo contra requisitos.
-    * **Aceptación (UAT):** Cliente valida el sistema. (Alpha: interna; Beta: externa).
-* **Según Objetivo Específico:**
-    * **Regresión:** Asegura que cambios no rompan lo existente.
-    * **Rendimiento:** Capacidad de respuesta, estabilidad, carga.
-    * **Usabilidad:** Facilidad de uso.
-    * **Seguridad:** Vulnerabilidades.
+* **Según el conocimiento de la estructura interna:**
+    * **Pruebas de Caja Blanca (Estructurales):** Se diseñan conociendo la lógica interna del código. El objetivo es asegurar que todos los caminos, bucles y condiciones se ejecutan correctamente.
+        * *Técnicas:* Cobertura de sentencias (cada línea de código se ejecuta al menos una vez), cobertura de decisiones/ramas (cada rama de una estructura de control se ejecuta), cobertura de condiciones, cobertura de caminos (todos los posibles caminos lógicos).
+    * **Pruebas de Caja Negra (Funcionales o de Comportamiento):** Se diseñan basándose únicamente en la especificación de requisitos, sin conocer la implementación interna. Se prueba la funcionalidad desde la perspectiva del usuario.
+        * *Técnicas:* Particiones de equivalencia (dividir entradas en grupos que deberían producir el mismo resultado), análisis de valores límite (probar en los bordes de los rangos de entrada), tablas de decisión, pruebas basadas en casos de uso, pruebas de transición de estados.
+    * **Pruebas de Caja Gris:** Combinación, donde el probador tiene algún conocimiento de la estructura interna para diseñar pruebas más efectivas, pero se enfoca en la funcionalidad.
+
+* **Según el Nivel de Prueba (progresión en el ciclo de desarrollo):**
+    * **Pruebas Unitarias:** Verifican la unidad más pequeña de código (funciones, métodos, clases) de forma aislada. Suelen ser automatizadas y escritas por los desarrolladores.
+    * **Pruebas de Integración:** Verifican la interfaz y la interacción entre dos o más componentes o módulos que ya han sido probados unitariamente. Buscan defectos en la "unión" de las partes.
+    * **Pruebas de Sistema:** Evalúan el sistema completo e integrado contra los requisitos originales (funcionales y no funcionales). Se realizan en un entorno lo más parecido posible al de producción.
+    * **Pruebas de Aceptación (UAT - User Acceptance Testing):** El cliente o usuario final valida que el sistema es "apto para su propósito" y cumple con sus necesidades de negocio.
+        * *Pruebas Alpha:* Realizadas por personal interno (no los desarrolladores) en un entorno controlado por la organización desarrolladora.
+        * *Pruebas Beta:* Realizadas por un grupo selecto de usuarios finales en sus propios entornos, antes del lanzamiento general.
+
+* **Según el Objetivo Específico (pruebas no funcionales y otras):**
+    * **Pruebas de Regresión:** Se ejecutan repetidamente después de cada cambio en el código (corrección de bugs, nuevas funcionalidades) para asegurar que los cambios no han afectado negativamente a funcionalidades existentes.
+    * **Pruebas de Rendimiento:** Evalúan cómo se comporta el sistema en términos de capacidad de respuesta, estabilidad y escalabilidad bajo una carga de trabajo particular. Incluyen pruebas de carga, estrés, resistencia y volumen.
+    * **Pruebas de Usabilidad:** Evalúan qué tan fácil, eficiente y satisfactorio es para el usuario interactuar con la aplicación.
+    * **Pruebas de Seguridad:** Intentan identificar vulnerabilidades, amenazas y riesgos en el software para proteger los datos y mantener la funcionalidad.
+    * **Pruebas de Instalación/Desinstalación:** Verifican que el software se puede instalar, desinstalar y actualizar correctamente en los entornos soportados.
+    * **Pruebas de Compatibilidad:** Aseguran que el software funciona correctamente en diferentes configuraciones de hardware, sistemas operativos, navegadores, etc.
 
 ### 3.2. Procedimientos y Casos de Prueba
 
-* **Procedimiento de Prueba:** Pasos detallados para ejecutar pruebas.
-* **Caso de Prueba:** Entradas, condiciones y resultados esperados para verificar un aspecto. *Componentes:* ID, descripción, precondiciones, pasos, datos entrada, resultado esperado/obtenido, estado.
+* **Procedimiento de Prueba:** Documento que describe en detalle cómo ejecutar un conjunto de pruebas. Incluye: ID, propósito, precondiciones, entorno, pasos de ejecución, datos de entrada, criterios de éxito/fracaso.
+* **Caso de Prueba:** Especificación de un conjunto de entradas, condiciones de ejecución, y un resultado esperado, desarrollado para un objetivo particular, como ejercitar una ruta de programa particular o verificar el cumplimiento de un requisito específico.
+    * *Atributos esenciales:* ID único, nombre/descripción, precondiciones, datos de entrada, pasos a seguir, resultado esperado, resultado real, estado (Pasa/Falla), severidad/prioridad (si falla).
 
-### 3.3. Técnicas de Diseño de Pruebas
+### 3.3. Técnicas de Diseño de Pruebas (Detalle)
 
-* **Cubrimiento de Código (Code Coverage):** (Caja blanca) % de código ejecutado por pruebas.
-* **Análisis de Valores Límite (BVA):** (Caja negra) Prueba límites de rangos de entrada.
-* **Particiones de Equivalencia:** (Caja negra) Divide entradas en clases; prueba un valor por clase.
+* **Cubrimiento de Código (Code Coverage):** Mide el grado en que el código fuente de un programa ha sido probado. No garantiza la ausencia de errores, pero un bajo cubrimiento es una señal de alerta.
+* **Análisis de Valores Límite (BVA):** Se enfoca en los "bordes" de las particiones de equivalencia. Si una entrada es válida entre 1 y 100, se prueban valores como 0, 1, 2, 99, 100, 101.
+* **Particiones de Equivalencia:** Se dividen todos los posibles datos de entrada en un número finito de "clases de equivalencia" tales que se puede asumir razonablemente que una prueba de un valor representativo de cada clase es equivalente a una prueba de cualquier otro valor de esa clase.
 
 ### 3.4. Herramientas de Depuración de Código
 
-Permiten ejecutar paso a paso, inspeccionar variables, puntos de interrupción, pila de llamadas. Integradas en IDEs (GDB, pdb, etc.).
+Los depuradores (debuggers) son herramientas software que permiten a los programadores monitorizar la ejecución de un programa, detenerla (breakpoints), examinar el estado (valores de variables, pila de llamadas) y continuar la ejecución paso a paso. Son esenciales para diagnosticar y corregir errores. La mayoría de los IDEs modernos incluyen depuradores integrados.
 
 ---
 
 ## 4. Planificación de Pruebas
 
-Define estrategia, objetivos, recursos y cronograma en un **Plan de Pruebas**.
+Es la actividad de gestión que define la estrategia general de pruebas, los objetivos, los recursos necesarios y el cronograma. El resultado es el **Plan de Pruebas**.
 
-* **Componentes Clave del Plan:** Alcance, estrategia, criterios entrada/salida, recursos, entorno, cronograma, entregables, riesgos.
+* **Componentes Clave del Plan de Pruebas:**
+    * **Identificador del plan y Introducción:** Propósito y resumen.
+    * **Ítems a Probar:** Módulos, funcionalidades o características que serán probadas.
+    * **Ítems que NO se Probarán:** Y justificación.
+    * **Estrategia de Prueba:** Enfoque general, niveles de prueba, tipos de prueba, criterios de inicio y finalización para cada fase.
+    * **Recursos:** Personal (roles y responsabilidades), hardware, software, herramientas de prueba.
+    * **Entorno de Prueba:** Especificaciones del hardware, software y configuración de red.
+    * **Cronograma:** Hitos, tareas, dependencias y estimaciones de tiempo.
+    * **Entregables de Prueba:** Documentos a producir (casos de prueba, scripts, informes de errores, informe resumen).
+    * **Riesgos y Contingencias:** Identificación de posibles problemas y planes para mitigarlos.
 
 ### 4.1. Pruebas Unitarias; Herramientas
 
-* **Objetivo:** Probar unidades aisladas. Automatizadas y rápidas.
-* **Herramientas (Frameworks):** JUnit, TestNG (Java); unittest, pytest (Python); Jest, Mocha (JS); MSTest, NUnit (C#).
+* **Objetivo:** Verificar la corrección de unidades de código individuales y aisladas. Son la base de una buena estrategia de pruebas.
+* **Realizadas por:** Principalmente desarrolladores, a medida que escriben el código.
+* **Herramientas (Frameworks):** Proporcionan una estructura para escribir y ejecutar pruebas, y para informar resultados.
+    * *Java:* JUnit (muy popular), TestNG (más funcionalidades, para pruebas más complejas).
+    * *Python:* `unittest` (módulo estándar), `pytest` (sintaxis más simple, potente).
+    * *JavaScript:* Jest (popular para React), Mocha (flexible), Jasmine (BDD).
+    * *C#:* MSTest (integrado en Visual Studio), NUnit, xUnit.net.
 
 ### 4.2. Pruebas de Integración
 
-* **Objetivo:** Verificar interacción entre módulos.
-* **Enfoques:** Big Bang (todos a la vez), Incremental (Top-Down, Bottom-Up, Sandwich).
+* **Objetivo:** Descubrir defectos en las interfaces y en las interacciones entre componentes integrados.
+* **Enfoques Comunes:**
+    * **Big Bang:** Se integran todos los módulos a la vez. Puede ser difícil aislar errores.
+    * **Incremental:** Se añaden módulos uno por uno o en pequeños grupos.
+        * *Top-Down:* Se prueban los módulos de nivel superior primero. Se usan *Stubs* (simuladores de módulos de nivel inferior aún no integrados).
+        * *Bottom-Up:* Se prueban los módulos de nivel inferior primero. Se usan *Drivers* (simuladores de módulos de nivel superior que llaman al módulo bajo prueba).
+        * *Sandwich/Híbrido:* Combina Top-Down y Bottom-Up.
 
 ### 4.3. Pruebas del Sistema
 
-* **Objetivo:** Probar sistema completo en entorno similar a producción. Basadas en requisitos.
+* **Objetivo:** Validar el comportamiento del sistema completo contra los requisitos funcionales y no funcionales especificados.
+* Se realizan en un entorno que replica lo más fielmente posible el entorno de producción.
+* Considera aspectos como rendimiento, seguridad, fiabilidad del sistema en su conjunto.
 
 ### 4.4. Pruebas de Aceptación
 
-* **Objetivo:** Cliente valida el sistema. (UAT, Alpha, Beta).
+* **Objetivo:** Confirmar que el sistema está listo para su uso operativo y cumple con los criterios de aceptación del cliente/usuario.
+* A menudo implican la ejecución de escenarios de negocio del mundo real.
 
 ### 4.5. Automatización de Pruebas
 
-* **Concepto:** Usar software para ejecutar pruebas, comparar resultados y generar informes.
-* **Ventajas:** Ahorro tiempo/coste, mayor cobertura, ejecución rápida/frecuente, reduce error humano, facilita CI/CD.
-* **Herramientas:** Frameworks unitarios, Selenium/Cypress (UI Web), Postman/RestAssured (API), Jenkins/GitLab CI (CI/CD).
+* **Concepto:** Utilizar herramientas software para ejecutar casos de prueba, comparar resultados reales con esperados y generar informes, sin intervención manual directa (o con mínima).
+* **Beneficios Clave:** Permite la ejecución frecuente y rápida de grandes suites de pruebas (especialmente regresión), mejora la fiabilidad de las pruebas, libera a los testers para tareas más exploratorias, esencial para CI/CD.
+* **Qué Automatizar:** Pruebas repetitivas, pruebas que cubren funcionalidades críticas, pruebas de regresión, pruebas de datos intensivos, pruebas de rendimiento.
+* **Herramientas Populares:**
+    * *UI Web:* Selenium (estándar de facto), Cypress (moderno, enfocado en desarrollador), Playwright (Microsoft).
+    * *API:* Postman (manual y automatizado), RestAssured (Java), Requests (Python).
+    * *Móvil:* Appium.
+    * *Integración con CI/CD:* Jenkins, GitLab CI, GitHub Actions, Azure DevOps.
 
 ---
 
 ## 5. Calidad del Software
 
-Grado en que un sistema cumple requisitos y expectativas.
+La calidad del software es un concepto multidimensional que refleja cuán bien un producto software satisface las necesidades explícitas e implícitas de sus usuarios.
 
 ### 5.1. Normas y Certificaciones
 
-* **ISO/IEC 25010 (SQuaRE):** Modelo de calidad del producto software (funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad, portabilidad).
-* **CMMI:** Modelo de madurez para mejora de procesos.
-* **ISO 9001:** Sistema de gestión de calidad general.
+Establecen marcos y modelos para guiar y evaluar la calidad.
+
+* **ISO/IEC 25010 (SQuaRE - Software product Quality Requirements and Evaluation):**
+    * Define un modelo de calidad del producto con ocho características principales (y sub-características):
+        1.  **Adecuación Funcional:** Cumplimiento funcional, completitud funcional, corrección funcional.
+        2.  **Eficiencia de Desempeño:** Comportamiento temporal, utilización de recursos, capacidad.
+        3.  **Compatibilidad:** Coexistencia, interoperabilidad.
+        4.  **Usabilidad:** Reconocibilidad, aprendizaje, operabilidad, protección contra errores de usuario, estética de la interfaz, accesibilidad.
+        5.  **Fiabilidad:** Madurez, disponibilidad, tolerancia a fallos, recuperabilidad.
+        6.  **Seguridad:** Confidencialidad, integridad, no repudio, responsabilidad (accountability), autenticidad.
+        7.  **Mantenibilidad:** Modularidad, reusabilidad, analizabilidad, modificabilidad, testeabilidad.
+        8.  **Portabilidad:** Adaptabilidad, instalabilidad, reemplazabilidad.
+* **CMMI (Capability Maturity Model Integration):** Modelo para la mejora de procesos de desarrollo. Define niveles de madurez que indican la capacidad de una organización para desarrollar software de calidad de forma consistente.
+* **ISO 9001:** Norma internacional para sistemas de gestión de la calidad, aplicable a cualquier organización, incluyendo las de desarrollo de software. Se enfoca en los procesos.
 
 ### 5.2. Medidas de Calidad del Software (Métricas)
 
-Medidas cuantitativas para evaluar aspectos del producto o proceso.
+Son mediciones cuantitativas de características del software o del proceso de desarrollo.
 
-* **Métricas del Producto:** Complejidad ciclomática, LOC, densidad de defectos, MTBF, cobertura de pruebas.
-* **Métricas del Proceso:** Esfuerzo, coste, tiempo de ciclo, defectos por fase.
+* **Métricas del Producto (evalúan el software en sí):**
+    * *Complejidad Ciclomática (McCabe):* Mide la complejidad de un módulo contando el número de caminos linealmente independientes. Mayor complejidad puede implicar más dificultad de prueba y mantenimiento.
+    * *Líneas de Código (LOC/SLOC):* Medida de tamaño. Por sí sola no indica calidad, pero se usa como denominador en otras métricas (ej. defectos/KLOC).
+    * *Densidad de Defectos:* Número de defectos encontrados por unidad de tamaño (ej. KLOC) o por punto de función.
+    * *Tiempo Medio Entre Fallos (MTBF):* Indicador de fiabilidad.
+    * *Cobertura de Pruebas:* Porcentaje del código ejercitado por las pruebas.
+    * *Métricas de Orientación a Objetos (Chidamber y Kemerer):* WMC, DIT, NOC, CBO, RFC, LCOM (para clases).
+* **Métricas del Proceso (evalúan el proceso de desarrollo):**
+    * *Esfuerzo (ej. horas-persona, días-persona).*
+    * *Coste del proyecto.*
+    * *Duración del proyecto/fase.*
+    * *Número de defectos detectados por fase.*
+    * *Eficiencia de eliminación de defectos (DRE - Defect Removal Efficiency).*
+* **Métricas de Mantenimiento:**
+    * *Tiempo Medio Para Reparar (MTTR).*
+    * *Índice de Mantenibilidad.*
 
 ---
 
 ## 6. Control de Versiones
 
-Sistema que registra cambios en archivos a lo largo del tiempo, permitiendo recuperar versiones.
+Sistema que gestiona y rastrea los cambios en archivos y directorios a lo largo del tiempo, especialmente útil en el desarrollo de software para coordinar el trabajo entre múltiples personas y mantener un historial detallado.
 
 ### 6.1. Concepto y Características
 
-* **Concepto:** Gestionar evolución de archivos.
-* **Características:** Historial, ramificación (branching), fusión (merging), reversión, colaboración.
+* **Concepto:** Herramienta para gestionar la evolución de un proyecto, permitiendo volver a versiones anteriores, comparar cambios y entender el desarrollo histórico.
+* **Características Clave:**
+    * **Historial de Cambios (Log):** Registro cronológico de todas las modificaciones, quién las hizo, cuándo y (a través de mensajes de commit) por qué.
+    * **Ramificación (Branching):** Creación de líneas de desarrollo paralelas e independientes. Permite trabajar en nuevas funcionalidades, experimentos o correcciones de errores sin afectar la línea principal (ej. `main` o `master`).
+    * **Fusión (Merging):** Proceso de combinar los cambios de una rama en otra. Git es especialmente bueno en esto.
+    * **Etiquetado (Tagging):** Marcar puntos específicos en el historial como importantes (ej. lanzamientos de versiones como `v1.0`).
+    * **Reversión de Cambios:** Capacidad de deshacer cambios específicos o volver a un estado anterior del proyecto.
+    * **Trabajo Concurrente y Colaboración:** Facilita que varios desarrolladores trabajen en el mismo proyecto simultáneamente.
 
 ### 6.2. Tipos de Sistemas de Control de Versiones (VCS)
 
-* **Centralizados (CVCS):** Servidor único (SVN, CVS). Desventaja: punto único de fallo.
-* **Distribuidos (DVCS):** Cada desarrollador tiene copia completa (Git, Mercurial). Ventaja: flexibilidad, offline.
+* **Locales:** Todas las versiones se guardan en la máquina local del desarrollador. Poco práctico para colaboración.
+* **Centralizados (CVCS - Centralized Version Control Systems):**
+    * Un único servidor central contiene todas las versiones del proyecto. Los desarrolladores obtienen copias de trabajo (checkout) y envían sus cambios (commit/check-in) al servidor.
+    * *Ejemplos:* Subversion (SVN), CVS, Perforce (puede ser centralizado).
+    * *Ventajas:* Administración centralizada, fácil de entender para principiantes.
+    * *Desventajas:* Punto único de fallo (si el servidor cae, nadie puede colaborar o guardar versiones), la mayoría de las operaciones requieren conexión de red.
+* **Distribuidos (DVCS - Distributed Version Control Systems):**
+    * Cada desarrollador tiene una copia completa (un clon) del repositorio en su máquina local, incluyendo todo el historial.
+    * Las operaciones como commit, branching, merging se realizan localmente. La sincronización con otros repositorios (remotos) es un paso explícito.
+    * *Ejemplos:* Git, Mercurial.
+    * *Ventajas:* Se puede trabajar offline, mayor velocidad para operaciones locales, no hay punto único de fallo, flujos de trabajo más flexibles.
+    * *Desventajas:* Curva de aprendizaje inicial puede ser más pronunciada.
 
 ### 6.3. Herramientas
 
-* **Git:** El DVCS más popular.
-* **Subversion (SVN):** CVCS maduro.
-* **Mercurial:** Otro DVCS.
+* **Git:** El estándar de facto para DVCS. Creado por Linus Torvalds. Extremadamente potente, rápido y flexible. Amplia comunidad y soporte de herramientas (GitHub, GitLab, Bitbucket).
+* **Subversion (SVN):** CVCS maduro y robusto, todavía utilizado en muchos proyectos legados o en organizaciones que prefieren un modelo centralizado.
+* **Mercurial (hg):** Otro DVCS popular, conocido por su simplicidad relativa comparado con Git en algunos aspectos.
 
 ### 6.4. Repositorio
 
-* **Concepto:** Lugar donde el VCS almacena el historial.
-* **Local:** Copia en máquina del desarrollador.
-* **Remoto:** Copia en servidor (GitHub, GitLab) para colaboración/backup.
+* **Concepto:** El "corazón" de un VCS. Es la base de datos o estructura de directorios donde se almacenan todos los archivos del proyecto, su historial completo de versiones, metadatos (como autores, fechas, mensajes de commit) y la configuración del control de versiones.
+* **Repositorio Local:** La copia del repositorio que reside en la máquina de un desarrollador. Aquí es donde se realizan la mayoría de los cambios y commits.
+* **Repositorio Remoto:** Una copia del repositorio alojada en un servidor accesible por red. Sirve como punto central para la colaboración entre desarrolladores, para la integración continua y como copia de seguridad.
+    * *Plataformas populares para alojar repositorios remotos Git:* GitHub, GitLab, Bitbucket, Azure Repos.
 
 ---
 
 ## 7. Elaboración de Diagramas de Clases (UML)
 
-Diagrama de estructura estática UML: clases, atributos, operaciones y relaciones.
+Los diagramas de clases son un pilar de UML (Lenguaje Unificado de Modelado). Describen la estructura estática de un sistema: las clases, sus atributos (datos), sus operaciones (comportamientos) y las relaciones entre ellas.
 
 ### 7.1. Notación de Clases
 
-* Rectángulo: Nombre, Atributos, Operaciones.
-* Visibilidad: `+` público, `-` privado, `#` protegido, `~` paquete.
-* Atributos: `visibilidad nombre: tipo = valorPorDefecto`
-* Métodos: `visibilidad nombre(parámetros): tipoDeRetorno`
+* **Representación:** Un rectángulo dividido, usualmente en tres compartimentos:
+    1.  **Nombre de la Clase:** En negrita, centrado. Si es abstracta, en cursiva o con `{abstract}`.
+    2.  **Atributos (Miembros de Datos):** Lista de variables de la clase.
+    3.  **Operaciones (Métodos):** Lista de funciones de la clase.
+* **Visibilidad de Miembros:**
+    * `+` : `public` (accesible desde cualquier lugar)
+    * `-` : `private` (accesible solo dentro de la propia clase)
+    * `#` : `protected` (accesible dentro de la clase y sus subclases)
+    * `~` : `package` (visibilidad por defecto en Java, accesible dentro del mismo paquete)
+* **Formato de Atributos:** `visibilidad nombreAtributo: tipo = valorInicial {propiedades}`
+    * *Ejemplo:* `- nombre: String` , `+ edad: int = 0`
+* **Formato de Operaciones/Métodos:** `visibilidad nombreMetodo(parametro1: tipo1, ...): tipoDeRetorno {propiedades}`
+    * *Ejemplo:* `+ calcularSalario(horas: int, tarifa: double): double` , `- validarDatos()`
 
 ### 7.2. Objetos e Instanciación
 
-* **Objeto:** Instancia de clase (`nombreObjeto: NombreClase` subrayado).
+* **Objeto:** Una instancia concreta de una clase. En un diagrama, se puede representar como un rectángulo con el nombre del objeto y su clase, subrayados: `nombreObjeto: NombreClase`.
+    * *Ejemplo:* `miCoche: Coche`
+* **Instanciación:** Es el acto de crear un objeto a partir de una clase.
 
-### 7.3. Relaciones
+### 7.3. Relaciones entre Clases
 
-* **Herencia:** Flecha hueca a superclase.
-* **Composición:** Rombo relleno en el "todo" (parte no existe sin el todo).
-* **Agregación:** Rombo hueco en el "todo" (parte puede existir independientemente).
-* **Asociación:** Línea continua (puede tener multiplicidad).
-* **Dependencia (Uso):** Línea discontinua con flecha.
+* **Asociación:**
+    * Relación estructural que indica que objetos de una clase están conectados o relacionados con objetos de otra.
+    * Se representa con una línea continua entre clases.
+    * Puede tener un nombre, roles en cada extremo y multiplicidad.
+    * *Multiplicidad:* Indica cuántos objetos de una clase pueden relacionarse con un objeto de la otra clase (ej. `1`, `0..1` (cero o uno), `*` (cero o más), `1..*` (uno o más), `2..5`).
+* **Agregación (Asociación "tiene-un"):**
+    * Tipo especial de asociación que representa una relación "parte-de" o "tiene-un", donde la clase "parte" puede existir independientemente de la clase "todo".
+    * Se representa con un rombo hueco en el extremo de la clase "todo".
+    * *Ejemplo:* Un `Departamento` *tiene-un* `Profesor` (si el departamento se elimina, el profesor puede seguir existiendo).
+* **Composición (Asociación "es-parte-de" fuerte):**
+    * Forma más fuerte de agregación. La "parte" depende existencialmente del "todo"; si el "todo" se destruye, la "parte" también.
+    * Se representa con un rombo relleno en el extremo de la clase "todo".
+    * *Ejemplo:* Un `Coche` *es-parte-de* un `Motor` (si el coche se destruye, su motor específico también).
+* **Herencia (Generalización/Especialización):**
+    * Indica que una clase (subclase o clase hija) hereda propiedades (atributos y métodos) de otra clase (superclase o clase padre), y puede añadir o modificar comportamiento. Relación "es-un-tipo-de".
+    * Se representa con una flecha con punta triangular hueca desde la subclase hacia la superclase.
+* **Dependencia:**
+    * Relación más débil. Indica que un cambio en una clase (el proveedor) puede afectar a otra clase (el cliente), pero no al revés. A menudo, una clase usa a otra como parámetro de un método o tipo de variable local.
+    * Se representa con una línea discontinua con una flecha abierta apuntando al proveedor.
+* **Realización (Implementación de Interfaz):**
+    * Indica que una clase implementa las operaciones especificadas por una interfaz.
+    * Se representa con una línea discontinua y una flecha triangular hueca desde la clase implementadora hacia la interfaz (similar a la herencia, pero para interfaces). O bien, con la notación "lollipop" para interfaces.
 
 ### 7.4. Herramientas para Elaboración y Generación
 
-StarUML, Visual Paradigm, Lucidchart, draw.io. IDEs con plugins. Permiten ingeniería directa (diagrama -> código) e inversa (código -> diagrama).
+* **Software de Modelado UML:** StarUML, Visual Paradigm (edición community disponible), Lucidchart (online), draw.io (diagrams.net, gratuito online y de escritorio), Enterprise Architect (comercial, muy completo).
+* **Plugins en IDEs:** Muchos IDEs como IntelliJ IDEA, Eclipse, NetBeans tienen plugins para visualizar y a veces editar diagramas de clases (a menudo mediante ingeniería inversa del código).
+* **Generación de Código (Ingeniería Directa):** Algunas herramientas pueden generar esqueletos de clases (archivos `.java`, `.cs`, etc.) a partir de un diagrama de clases.
+* **Generación de Diagramas (Ingeniería Inversa):** Herramientas que analizan código fuente existente para generar automáticamente un diagrama de clases.
 
 ---
 
 ## 8. Elaboración de Diagramas de Comportamiento (UML)
 
-Describen aspectos dinámicos del sistema.
+Estos diagramas se centran en los aspectos dinámicos de un sistema, mostrando cómo interactúan los componentes y cómo evoluciona el estado del sistema con el tiempo.
 
-### 8.1. Tipos Principales
+### 8.1. Tipos Principales y Campo de Aplicación
 
-* **Casos de Uso:** Funcionalidad desde perspectiva del usuario.
-* **Interacción (Secuencia, Colaboración/Comunicación):** Colaboración entre objetos.
-* **Estados (Máquina de Estados):** Ciclo de vida de un objeto.
-* **Actividad:** Flujo de trabajo o procesos.
+* **Diagramas de Casos de Uso:** Capturan los requisitos funcionales del sistema desde la perspectiva de los usuarios (actores). Describen "qué" hace el sistema.
+* **Diagramas de Interacción:** Subconjunto que muestra el flujo de control y datos entre objetos.
+    * **Diagramas de Secuencia:** Enfatizan el orden temporal de los mensajes.
+    * **Diagramas de Comunicación (antes Colaboración):** Enfatizan la organización de los objetos que participan en la interacción.
+    * *Diagramas de Tiempos (Timing Diagrams) y Diagramas Globales de Interacción son menos comunes.*
+* **Diagramas de Máquina de Estados:** Modelan el ciclo de vida de un objeto, mostrando los estados por los que pasa y las transiciones entre ellos en respuesta a eventos.
+* **Diagramas de Actividad:** Representan flujos de trabajo o procesos, mostrando la secuencia de actividades y las decisiones que se toman. Similares a los diagramas de flujo.
 
 ### 8.2. Diagramas de Casos de Uso
 
-* **Actor:** Rol (figura de palo).
-* **Caso de Uso:** Funcionalidad (óvalo).
-* **Relación de Comunicación:** Línea actor-caso de uso.
+* **Actor:** Representa un rol que interactúa con el sistema (puede ser una persona, otro sistema o dispositivo). Se dibuja como una figura de palo ("stickman").
+* **Caso de Uso:** Describe una secuencia de acciones que el sistema realiza para producir un resultado observable de valor para un actor. Se representa con un óvalo con el nombre del caso de uso dentro.
+* **Relación de Comunicación (Asociación):** Línea continua que conecta un actor con un caso de uso en el que participa.
+* **Relaciones entre Casos de Uso:**
+    * **Inclusión (`<<include>>`):** Un caso de uso base incorpora explícitamente el comportamiento de otro caso de uso. Flecha discontinua hacia el caso de uso incluido.
+    * **Extensión (`<<extend>>`):** Un caso de uso (el extensor) añade comportamiento opcional a otro caso de uso base en un punto de extensión definido. Flecha discontinua hacia el caso de uso base.
+    * **Generalización:** Un caso de uso hijo hereda y especializa el comportamiento de un caso de uso padre (similar a la herencia de clases).
+* **Límite del Sistema:** Un rectángulo que delimita los casos de uso pertenecientes al sistema, separándolos de los actores.
 
 ### 8.3. Diagramas de Interacción
 
-* **Diagramas de Secuencia:** Orden temporal de mensajes.
-    * **Línea de Vida:** Vertical discontinua.
-    * **Activación:** Rectángulo en línea de vida.
-    * **Mensaje:** Flecha entre líneas de vida.
-* **Diagramas de Colaboración/Comunicación:** Organización estructural de objetos.
-    * **Objetos:** Rectángulos.
-    * **Enlaces:** Líneas.
-    * **Mensajes:** Flechas numeradas en enlaces.
+* **Diagramas de Secuencia:**
+    * Muestran la interacción entre objetos ordenada cronológicamente. Eje vertical representa el tiempo (hacia abajo).
+    * **Línea de Vida del Objeto (`Lifeline`):** Línea vertical discontinua bajo un rectángulo que representa un objeto (`nombreObjeto:NombreClase`).
+    * **Activación (Foco de Control):** Rectángulo estrecho y alargado sobre la línea de vida, indica el período durante el cual un objeto está ejecutando una operación.
+    * **Mensaje:** Flecha horizontal entre líneas de vida.
+        * *Síncrono (llamada):* Flecha con punta rellena. El emisor espera respuesta.
+        * *Asíncrono (señal):* Flecha con punta abierta. El emisor no espera.
+        * *Retorno:* Flecha discontinua con punta abierta (opcional si es obvio).
+        * *Creación de objeto:* Flecha hacia el rectángulo del objeto.
+        * *Destrucción de objeto:* Flecha hacia una 'X' en la línea de vida.
+    * **Fragmentos Combinados:** Para modelar bucles (`loop`), alternativas (`alt`), opcionales (`opt`), paralelos (`par`).
 
-### 8.4. Diagramas de Estados
+* **Diagramas de Comunicación (o Colaboración):**
+    * Muestran las interacciones entre objetos o partes en términos de enlaces y mensajes intercambiados. No enfatizan tanto el tiempo como la estructura de la colaboración.
+    * **Objetos/Participantes:** Rectángulos.
+    * **Enlaces (Links):** Líneas continuas que conectan los objetos, representan una instancia de una asociación.
+    * **Mensajes:** Flechas a lo largo de los enlaces, con un número de secuencia para indicar el orden y, opcionalmente, el nombre del mensaje/método.
 
-* Modela estados y transiciones de un objeto.
-* **Estado:** Rectángulo bordes redondeados.
-* **Transición:** Flecha (causada por evento).
-* **Evento:** Ocurrencia que dispara transición.
+### 8.4. Diagramas de Máquina de Estados
+
+* Describen los posibles estados por los que un objeto puede pasar durante su ciclo de vida, así como los eventos que causan una transición de un estado a otro y las acciones que pueden ocurrir.
+* **Estado:** Condición o situación durante la vida de un objeto en la que satisface alguna condición, realiza alguna actividad o espera algún evento. Se representa con un rectángulo con bordes redondeados.
+    * *Estado Inicial:* Círculo relleno pequeño.
+    * *Estado Final:* Círculo relleno pequeño dentro de otro círculo.
+* **Transición:** Relación entre dos estados que indica que un objeto en el primer estado realizará una acción y entrará en el segundo estado cuando ocurra un evento especificado y se cumplan ciertas condiciones. Se representa con una flecha del estado origen al estado destino.
+    * `evento [condiciónGuardia] / actividad`
+* **Evento:** Especificación de una ocurrencia significativa que tiene una ubicación en el tiempo y el espacio. Puede ser una señal, una llamada, el paso del tiempo o un cambio de estado.
+* **Acción:** Proceso o transformación atómica (no interrumpible) que se ejecuta.
+* **Actividad:** Comportamiento que se ejecuta mientras un objeto está en un estado.

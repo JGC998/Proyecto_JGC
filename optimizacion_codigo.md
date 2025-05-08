@@ -257,3 +257,39 @@ Un flujo de trabajo común es:
 Si te enfrentas a código que necesita refactorización pero carece de pruebas (código heredado o *legacy code*), el primer paso antes de una refactorización significativa debería ser **escribir pruebas de caracterización**. Estas pruebas no juzgan si el código es correcto, sino que capturan su comportamiento actual, con sus virtudes y defectos. Una vez que se tiene esta red de seguridad, se puede empezar a refactorizar con más confianza.
 
 En resumen, las pruebas no son solo una buena práctica en el desarrollo de software en general, sino un **requisito previo indispensable para una refactorización segura y efectiva.**
+
+### 1.6. Herramientas de Ayuda a la Refactorización
+
+Aunque la refactorización puede realizarse manualmente, los Entornos de Desarrollo Integrado (IDEs) modernos proporcionan un potente conjunto de herramientas que automatizan muchos patrones de refactorización comunes. Estas herramientas son extremadamente útiles porque:
+
+* **Reducen el riesgo de error humano:** Realizan los cambios de forma sistemática y se encargan de actualizar todas las referencias necesarias (por ejemplo, al renombrar un método).
+* **Ahorran tiempo:** Automatizan tareas que manualmente serían tediosas y propensas a errores.
+* **Facilitan el aprendizaje:** Al ver cómo el IDE aplica una refactorización, los desarrolladores pueden aprender mejor los patrones y cuándo aplicarlos.
+
+**Funcionalidades Comunes en los IDEs (ej. IntelliJ IDEA, Eclipse, VS Code con extensiones Java):**
+
+La mayoría de los IDEs ofrecen menús contextuales (generalmente al hacer clic derecho sobre un elemento del código o a través de atajos de teclado) con opciones de refactorización como:
+
+* **Renombrar (Rename):** Para variables, métodos, clases, paquetes, etc. El IDE actualiza todas las apariciones.
+* **Extraer Método (Extract Method):** Seleccionas un bloque de código y el IDE lo convierte en un nuevo método, preguntando por su nombre y parámetros.
+* **Extraer Variable (Extract Variable):** Para asignar una expresión a una nueva variable.
+* **Extraer Constante (Extract Constant):** Similar a extraer variable, pero para crear una constante `public static final`.
+* **Extraer Parámetro (Extract Parameter):** Si un método usa un valor que podría ser un parámetro, esta opción lo convierte en uno.
+* **Extraer Interfaz (Extract Interface):** Crea una interfaz a partir de los métodos públicos de una clase.
+* **Extraer Superclase (Extract Superclass):** Mueve miembros comunes de una o varias clases a una nueva superclase.
+* **Mover (Move):** Permite mover clases entre paquetes, o métodos y campos estáticos entre clases.
+* **Encapsular Campos (Encapsulate Fields):** Convierte campos públicos en privados y genera getters/setters.
+* **Cambiar Firma de Método (Change Method Signature):** Permite añadir, eliminar o reordenar parámetros, cambiar el tipo de retorno o la visibilidad. El IDE intenta actualizar todos los sitios donde se llama al método.
+* **Inline (Variable, Method):** Es la operación inversa a "Extraer". Reemplaza el uso de una variable o método con su contenido directamente en el sitio de la llamada. Útil si la abstracción ya no es necesaria o añade confusión.
+* **Reemplazar Número Mágico con Constante (Replace Magic Number with Constant):** Detecta literales numéricos y ayuda a convertirlos en constantes.
+
+**Uso Efectivo de las Herramientas:**
+
+* **Conoce los atajos de teclado:** Agiliza mucho el proceso.
+* **Previsualiza los cambios:** Muchos IDEs ofrecen una vista previa de los cambios antes de aplicarlos. Revísala.
+* **Trabaja en conjunto con tu sistema de control de versiones (Git):** Haz commit de los cambios después de una refactorización exitosa (y verificada por pruebas) para poder revertir si algo sale mal.
+* **No confíes ciegamente:** Aunque las herramientas son potentes, siempre es bueno entender qué está haciendo la refactorización y revisar el resultado, especialmente en casos complejos.
+
+El uso de estas herramientas integradas en los IDEs es una práctica estándar y altamente recomendada para realizar refactorizaciones de manera eficiente y segura.
+
+**(Aquí podrías considerar añadir una captura de pantalla de un menú de refactorización de tu IDE favorito, por ejemplo: `![Menú de Refactorización en IntelliJ IDEA](./imagenes/ide_refactor_menu.png)`)**

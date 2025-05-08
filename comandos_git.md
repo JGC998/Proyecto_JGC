@@ -91,3 +91,69 @@ Los lenguajes de programación se pueden clasificar de diversas maneras. Algunas
     * Lenguaje declarativo diseñado para gestionar y consultar datos en bases de datos relacionales.
     * No es un lenguaje de programación de propósito general, sino específico de dominio.
     * *Características destacadas:* Estándar para bases de datos relacionales, potente para consultas de datos.
+
+### 1.5. Código Fuente, Código Objeto y Código Ejecutable; Máquinas Virtuales
+
+* **Código Fuente (Source Code):**
+    * Es el conjunto de instrucciones escritas por un programador en un lenguaje de programación de alto nivel (como Java, Python, C++) o de bajo nivel (como Ensamblador).
+    * Es legible y comprensible para los humanos (con conocimiento del lenguaje).
+    * No puede ser ejecutado directamente por la CPU en su forma original (excepto en lenguajes puramente interpretados, donde el intérprete lo procesa al vuelo).
+    * *Ejemplo:* Un archivo `.java`, `.py`, `.cpp`.
+
+* **Código Objeto (Object Code):**
+    * Resultado de compilar el código fuente. Es una representación intermedia del programa en lenguaje máquina o en un formato cercano (como bytecode).
+    * Puede estar compuesto por instrucciones de máquina, pero a menudo necesita ser enlazado con otras piezas de código objeto (bibliotecas) para formar un programa completo.
+    * No siempre es directamente ejecutable por sí mismo.
+    * *Ejemplo:* Archivos `.o` o `.obj` generados por compiladores de C/C++, archivos `.class` en Java (que contienen bytecode).
+
+* **Código Ejecutable (Executable Code):**
+    * Es la versión final de un programa que la CPU del ordenador puede ejecutar directamente (en el caso de lenguajes compilados a nativo) o que una máquina virtual puede interpretar y ejecutar (en el caso de bytecode).
+    * Contiene todas las instrucciones de máquina necesarias y referencias a recursos del sistema.
+    * *Ejemplo:* Un archivo `.exe` en Windows, un binario sin extensión en Linux/macOS, o el bytecode que ejecuta la JVM.
+
+* **Máquinas Virtuales (Virtual Machines - VM):**
+    * Es un software que crea un entorno de ejecución abstracto, simulando una plataforma de hardware.
+    * Permiten que el mismo código compilado (generalmente bytecode) se ejecute en diferentes sistemas operativos y arquitecturas de hardware sin necesidad de recompilar el código fuente para cada plataforma.
+    * Proporcionan una capa de abstracción entre el programa y el sistema operativo/hardware subyacente.
+    * *Ejemplos:*
+        * **JVM (Java Virtual Machine):** Ejecuta bytecode Java. Permite la portabilidad de las aplicaciones Java ("Write Once, Run Anywhere").
+        * **CLR (Common Language Runtime):** Parte de .NET Framework, ejecuta CIL (Common Intermediate Language) generado a partir de C#, VB.NET, etc.
+        * Intérpretes de Python: Aunque Python es interpretado, su implementación CPython compila el código fuente a bytecode que luego es ejecutado por la máquina virtual de Python.
+
+### 1.6. Proceso de Obtención de Código Ejecutable y Herramientas
+
+El proceso para transformar código fuente en algo que la máquina pueda ejecutar varía según el tipo de lenguaje.
+
+**A. Para Lenguajes Compilados (ej. C, C++):**
+
+1.  **Preprocesamiento (Preprocessing):** (Principalmente en C/C++) El preprocesador maneja directivas (ej. `#include`, `#define`). Incluye archivos de cabecera, expande macros, etc.
+2.  **Compilación (Compilation):** El compilador traduce el código fuente (preprocesado) a código ensamblador específico de la arquitectura y luego a código objeto (archivos `.o` o `.obj`). Cada archivo fuente se compila por separado.
+    * **Herramienta:** Compilador (ej. GCC, Clang, MSVC).
+3.  **Enlazado (Linking):** El enlazador (linker) toma uno o más archivos de código objeto y los combina con código de bibliotecas (estáticas o dinámicas) para resolver referencias entre ellos y producir un único archivo ejecutable.
+    * **Herramienta:** Enlazador (Linker) (ej. `ld` en sistemas Unix, `link.exe` en Windows).
+
+**B. Para Lenguajes con Máquina Virtual (ej. Java, C#):**
+
+1.  **Compilación a Código Intermedio:** El compilador traduce el código fuente a un código intermedio independiente de la plataforma (bytecode para Java, CIL para C#).
+    * **Herramienta:** Compilador (ej. `javac` para Java, compilador Roslyn para C#).
+2.  **Ejecución por la Máquina Virtual:** En tiempo de ejecución, la Máquina Virtual (JVM, CLR) carga el bytecode/CIL. Puede interpretarlo o usar un compilador Just-In-Time (JIT) para convertirlo a código máquina nativo para una ejecución más rápida.
+    * **Herramienta:** Máquina Virtual (ej. `java` para ejecutar programas Java).
+
+**C. Para Lenguajes Interpretados (ej. Python, JavaScript tradicional):**
+
+1.  **Lectura y Análisis:** El intérprete lee el código fuente.
+2.  **Traducción/Ejecución Directa:** El intérprete traduce cada instrucción a código máquina y la ejecuta, o la ejecuta directamente. Algunos intérpretes modernos pueden compilar a bytecode internamente para optimizar la ejecución repetida de código.
+    * **Herramienta:** Intérprete (ej. `python`, el motor V8 de JavaScript en Chrome/Node.js).
+
+**Herramientas Implicadas Adicionales:**
+
+* **Traductores de Lenguajes:**
+    * **Compiladores:** Traducen un lenguaje de alto nivel a uno de más bajo nivel (código objeto o máquina).
+    * **Intérpretes:** Analizan y ejecutan un programa línea por línea.
+    * **Ensambladores (Assemblers):** Traducen código ensamblador a código máquina.
+    * **Transpiladores (Transpilers) o Compiladores Fuente-a-Fuente:** Traducen código de un lenguaje de alto nivel a otro lenguaje de alto nivel (ej. TypeScript a JavaScript, Babel para versiones modernas de JS a versiones antiguas).
+
+* **Depuradores (Debuggers):**
+    * Son herramientas esenciales que permiten a los programadores ejecutar su código paso a paso, inspeccionar el valor de las variables, establecer puntos de interrupción (breakpoints) para detener la ejecución en ciertos puntos, y analizar el flujo del programa para identificar y corregir errores (bugs).
+    * La mayoría de los IDEs integran depuradores gráficos.
+    * *Ejemplos:* GDB (GNU Debugger), `pdb` para Python, depuradores integrados en IntelliJ IDEA, Eclipse, Visual Studio Code.

@@ -211,3 +211,201 @@ El desarrollo de una aplicación de software es un proceso complejo que se divid
     * **Resultado:** Nuevas versiones o parches de la aplicación.
 
 Es importante notar que en metodologías ágiles (como Scrum o Kanban), estas fases suelen ser iterativas e incrementales, en lugar de secuenciales y estrictas. Se trabaja en ciclos cortos, entregando valor funcional al final de cada ciclo.
+
+
+
+## 2. Uso de Herramientas CASE en el Desarrollo de Software
+
+Las herramientas CASE (Ingeniería de Software Asistida por Ordenador) automatizan y simplifican fases del ciclo de vida del software.
+
+* **Objetivos:** Mejorar productividad, calidad, reducir tiempos/costes, facilitar gestión y comunicación.
+* **Tipos:**
+    * **Upper CASE (U-CASE):** Primeras fases (planificación, análisis, diseño).
+    * **Lower CASE (L-CASE):** Últimas fases (generación código, compilación, pruebas, mantenimiento).
+    * **Integrated CASE (I-CASE):** Cubren todo el ciclo.
+* **Funcionalidades:** Modelado, generación de diagramas (UML), repositorios de metadatos, generación de código, ingeniería inversa, validación, gestión de configuración, documentación.
+* **Ventajas:** Estandarización, mejora calidad, detección temprana errores, reutilización.
+* **Desventajas:** Curva aprendizaje, coste, posible rigidez metodológica.
+
+---
+
+## 3. Diseño y Realización de Pruebas
+
+Proceso para asegurar calidad, verificar requisitos y detectar errores.
+
+### 3.1. Tipos de Pruebas
+
+* **Según conocimiento interno:**
+    * **Caja Blanca (Estructurales):** Conoce el código. Verifica flujos internos. *Técnicas:* Cobertura de sentencias, decisiones, caminos.
+    * **Caja Negra (Funcionales):** Desconoce el código. Prueba E/S según especificaciones. *Técnicas:* Particiones equivalencia, valores límite.
+    * **Caja Gris:** Conocimiento parcial.
+* **Según Nivel:**
+    * **Unitarias:** Módulos pequeños y aislados (por desarrolladores).
+    * **Integración:** Interacción entre módulos.
+    * **Sistema:** Sistema completo contra requisitos.
+    * **Aceptación (UAT):** Cliente valida el sistema. (Alpha: interna; Beta: externa).
+* **Según Objetivo Específico:**
+    * **Regresión:** Asegura que cambios no rompan lo existente.
+    * **Rendimiento:** Capacidad de respuesta, estabilidad, carga.
+    * **Usabilidad:** Facilidad de uso.
+    * **Seguridad:** Vulnerabilidades.
+
+### 3.2. Procedimientos y Casos de Prueba
+
+* **Procedimiento de Prueba:** Pasos detallados para ejecutar pruebas.
+* **Caso de Prueba:** Entradas, condiciones y resultados esperados para verificar un aspecto. *Componentes:* ID, descripción, precondiciones, pasos, datos entrada, resultado esperado/obtenido, estado.
+
+### 3.3. Técnicas de Diseño de Pruebas
+
+* **Cubrimiento de Código (Code Coverage):** (Caja blanca) % de código ejecutado por pruebas.
+* **Análisis de Valores Límite (BVA):** (Caja negra) Prueba límites de rangos de entrada.
+* **Particiones de Equivalencia:** (Caja negra) Divide entradas en clases; prueba un valor por clase.
+
+### 3.4. Herramientas de Depuración de Código
+
+Permiten ejecutar paso a paso, inspeccionar variables, puntos de interrupción, pila de llamadas. Integradas en IDEs (GDB, pdb, etc.).
+
+---
+
+## 4. Planificación de Pruebas
+
+Define estrategia, objetivos, recursos y cronograma en un **Plan de Pruebas**.
+
+* **Componentes Clave del Plan:** Alcance, estrategia, criterios entrada/salida, recursos, entorno, cronograma, entregables, riesgos.
+
+### 4.1. Pruebas Unitarias; Herramientas
+
+* **Objetivo:** Probar unidades aisladas. Automatizadas y rápidas.
+* **Herramientas (Frameworks):** JUnit, TestNG (Java); unittest, pytest (Python); Jest, Mocha (JS); MSTest, NUnit (C#).
+
+### 4.2. Pruebas de Integración
+
+* **Objetivo:** Verificar interacción entre módulos.
+* **Enfoques:** Big Bang (todos a la vez), Incremental (Top-Down, Bottom-Up, Sandwich).
+
+### 4.3. Pruebas del Sistema
+
+* **Objetivo:** Probar sistema completo en entorno similar a producción. Basadas en requisitos.
+
+### 4.4. Pruebas de Aceptación
+
+* **Objetivo:** Cliente valida el sistema. (UAT, Alpha, Beta).
+
+### 4.5. Automatización de Pruebas
+
+* **Concepto:** Usar software para ejecutar pruebas, comparar resultados y generar informes.
+* **Ventajas:** Ahorro tiempo/coste, mayor cobertura, ejecución rápida/frecuente, reduce error humano, facilita CI/CD.
+* **Herramientas:** Frameworks unitarios, Selenium/Cypress (UI Web), Postman/RestAssured (API), Jenkins/GitLab CI (CI/CD).
+
+---
+
+## 5. Calidad del Software
+
+Grado en que un sistema cumple requisitos y expectativas.
+
+### 5.1. Normas y Certificaciones
+
+* **ISO/IEC 25010 (SQuaRE):** Modelo de calidad del producto software (funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad, portabilidad).
+* **CMMI:** Modelo de madurez para mejora de procesos.
+* **ISO 9001:** Sistema de gestión de calidad general.
+
+### 5.2. Medidas de Calidad del Software (Métricas)
+
+Medidas cuantitativas para evaluar aspectos del producto o proceso.
+
+* **Métricas del Producto:** Complejidad ciclomática, LOC, densidad de defectos, MTBF, cobertura de pruebas.
+* **Métricas del Proceso:** Esfuerzo, coste, tiempo de ciclo, defectos por fase.
+
+---
+
+## 6. Control de Versiones
+
+Sistema que registra cambios en archivos a lo largo del tiempo, permitiendo recuperar versiones.
+
+### 6.1. Concepto y Características
+
+* **Concepto:** Gestionar evolución de archivos.
+* **Características:** Historial, ramificación (branching), fusión (merging), reversión, colaboración.
+
+### 6.2. Tipos de Sistemas de Control de Versiones (VCS)
+
+* **Centralizados (CVCS):** Servidor único (SVN, CVS). Desventaja: punto único de fallo.
+* **Distribuidos (DVCS):** Cada desarrollador tiene copia completa (Git, Mercurial). Ventaja: flexibilidad, offline.
+
+### 6.3. Herramientas
+
+* **Git:** El DVCS más popular.
+* **Subversion (SVN):** CVCS maduro.
+* **Mercurial:** Otro DVCS.
+
+### 6.4. Repositorio
+
+* **Concepto:** Lugar donde el VCS almacena el historial.
+* **Local:** Copia en máquina del desarrollador.
+* **Remoto:** Copia en servidor (GitHub, GitLab) para colaboración/backup.
+
+---
+
+## 7. Elaboración de Diagramas de Clases (UML)
+
+Diagrama de estructura estática UML: clases, atributos, operaciones y relaciones.
+
+### 7.1. Notación de Clases
+
+* Rectángulo: Nombre, Atributos, Operaciones.
+* Visibilidad: `+` público, `-` privado, `#` protegido, `~` paquete.
+* Atributos: `visibilidad nombre: tipo = valorPorDefecto`
+* Métodos: `visibilidad nombre(parámetros): tipoDeRetorno`
+
+### 7.2. Objetos e Instanciación
+
+* **Objeto:** Instancia de clase (`nombreObjeto: NombreClase` subrayado).
+
+### 7.3. Relaciones
+
+* **Herencia:** Flecha hueca a superclase.
+* **Composición:** Rombo relleno en el "todo" (parte no existe sin el todo).
+* **Agregación:** Rombo hueco en el "todo" (parte puede existir independientemente).
+* **Asociación:** Línea continua (puede tener multiplicidad).
+* **Dependencia (Uso):** Línea discontinua con flecha.
+
+### 7.4. Herramientas para Elaboración y Generación
+
+StarUML, Visual Paradigm, Lucidchart, draw.io. IDEs con plugins. Permiten ingeniería directa (diagrama -> código) e inversa (código -> diagrama).
+
+---
+
+## 8. Elaboración de Diagramas de Comportamiento (UML)
+
+Describen aspectos dinámicos del sistema.
+
+### 8.1. Tipos Principales
+
+* **Casos de Uso:** Funcionalidad desde perspectiva del usuario.
+* **Interacción (Secuencia, Colaboración/Comunicación):** Colaboración entre objetos.
+* **Estados (Máquina de Estados):** Ciclo de vida de un objeto.
+* **Actividad:** Flujo de trabajo o procesos.
+
+### 8.2. Diagramas de Casos de Uso
+
+* **Actor:** Rol (figura de palo).
+* **Caso de Uso:** Funcionalidad (óvalo).
+* **Relación de Comunicación:** Línea actor-caso de uso.
+
+### 8.3. Diagramas de Interacción
+
+* **Diagramas de Secuencia:** Orden temporal de mensajes.
+    * **Línea de Vida:** Vertical discontinua.
+    * **Activación:** Rectángulo en línea de vida.
+    * **Mensaje:** Flecha entre líneas de vida.
+* **Diagramas de Colaboración/Comunicación:** Organización estructural de objetos.
+    * **Objetos:** Rectángulos.
+    * **Enlaces:** Líneas.
+    * **Mensajes:** Flechas numeradas en enlaces.
+
+### 8.4. Diagramas de Estados
+
+* Modela estados y transiciones de un objeto.
+* **Estado:** Rectángulo bordes redondeados.
+* **Transición:** Flecha (causada por evento).
+* **Evento:** Ocurrencia que dispara transición.

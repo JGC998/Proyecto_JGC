@@ -1,6 +1,6 @@
 # Apuntes Tema 4: Desarrollo de Software, Git, Javadoc y Optimización
 
-Este repositorio contiene los apuntes elaborados para la evaluación del Tema 4 de la asignatura [Nombre de la Asignatura - si aplica, o simplemente "Desarrollo de Software"]. El trabajo se ha gestionado utilizando Git y GitHub, cumpliendo con los requisitos de commits, ramas y colaboración.
+Este repositorio contiene los apuntes elaborados para la evaluación del Tema 4 de la asignatura Entornos de Desarrollo. El trabajo se ha gestionado utilizando Git y GitHub, cumpliendo con los requisitos de commits, ramas y colaboración.
 
 ## Contenido del Repositorio
 

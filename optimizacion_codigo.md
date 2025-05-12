@@ -291,5 +291,3 @@ La mayoría de los IDEs ofrecen menús contextuales (generalmente al hacer clic 
 * **No confíes ciegamente:** Aunque las herramientas son potentes, siempre es bueno entender qué está haciendo la refactorización y revisar el resultado, especialmente en casos complejos.
 
 El uso de estas herramientas integradas en los IDEs es una práctica estándar y altamente recomendada para realizar refactorizaciones de manera eficiente y segura.
-
-**(Aquí podrías considerar añadir una captura de pantalla de un menú de refactorización de tu IDE favorito, por ejemplo: `![Menú de Refactorización en IntelliJ IDEA](./imagenes/ide_refactor_menu.png)`)**
